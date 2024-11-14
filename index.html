@@ -1,1 +1,40 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DDoS Attack Pattern Visualizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>DDoS Attack Pattern Visualizer</h1>
+        <div class="visualizer-container">
+            <canvas id="visualizer"></canvas>
+            <div id="server">
+                <div class="server-icon"></div>
+                <div class="server-label">Target Server</div>
+                <div id="server-status">Normal</div>
+            </div>
+        </div>
+        <div id="controls">
+            <div class="control-group">
+                <label for="attackType">Attack Type:</label>
+                <select id="attackType">
+                    <option value="udp">UDP Flood</option>
+                    <option value="syn">SYN Flood</option>
+                    <option value="http">HTTP Flood</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label for="intensity">Attack Intensity:</label>
+                <input type="range" id="intensity" min="1" max="100" value="50">
+                <span id="intensityValue">50%</span>
+            </div>
+            <button id="startStop">Start Attack</button>
+        </div>
+        <div id="explanation"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
