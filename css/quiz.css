@@ -1,0 +1,132 @@
+/* quiz.css */
+.quiz-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.quiz-progress-text {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+}
+
+.quiz-score {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.quiz-question {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+}
+
+.quiz-options {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.quiz-option {
+    padding: 1rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    background: transparent;
+    color: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.quiz-option:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.quiz-results {
+    text-align: center;
+    padding: 2rem;
+}
+
+.achievement {
+    margin: 2rem 0;
+    animation: fadeIn 0.5s ease;
+}
+
+.achievement-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: bounce 1s ease infinite;
+}
+
+.achievement-title {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.answers-review {
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.review-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.review-item.correct {
+    border-left: 4px solid var(--secondary-color);
+}
+
+.review-item.incorrect {
+    border-left: 4px solid var(--danger-color);
+}
+
+.restart-quiz {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.restart-quiz:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@media (max-width: 768px) {
+    .quiz-container {
+        padding: 1rem;
+    }
+    
+    .quiz-options {
+        grid-template-columns: 1fr;
+    }
+}

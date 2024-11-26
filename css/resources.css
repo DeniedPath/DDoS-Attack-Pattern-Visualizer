@@ -1,0 +1,114 @@
+/* resources.css */
+.resources-container {
+    padding: 2rem;
+}
+
+.resources-filters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    color: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: 0 0 15px rgba(74, 144, 226, 0.3);
+}
+
+.resource-category {
+    margin-bottom: 3rem;
+}
+
+.resource-category h2 {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.resource-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.resource-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resource-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.resource-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.resource-type {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    background: rgba(74, 144, 226, 0.2);
+    border-radius: 15px;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+.resource-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.8rem 1.5rem;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.resource-link:hover {
+    background: var(--secondary-color);
+    transform: translateX(5px);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.resource-card {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@media (max-width: 768px) {
+    .resources-container {
+        padding: 1rem;
+    }
+    
+    .resource-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .resources-filters {
+        justify-content: center;
+    }
+}

@@ -3,38 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DDoS Attack Pattern Visualizer</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>DDoS Attack Pattern Visualizer & Learning Platform</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/learning.css">
+    <link rel="stylesheet" href="./css/quiz.css">
+    <link rel="stylesheet" href="./css/resources.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
-        <h1>DDoS Attack Pattern Visualizer</h1>
-        <div class="visualizer-container">
-            <canvas id="visualizer"></canvas>
-            <div id="server">
-                <div class="server-icon"></div>
-                <div class="server-label">Target Server</div>
-                <div id="server-status">Normal</div>
+        <!-- Navigation Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="visualizer">
+                <i class="fas fa-chart-network"></i> Visualizer
+            </button>
+            <button class="tab-btn" data-tab="learn">
+                <i class="fas fa-graduation-cap"></i> Learn
+            </button>
+            <button class="tab-btn" data-tab="quiz">
+                <i class="fas fa-question-circle"></i> Quiz
+            </button>
+            <button class="tab-btn" data-tab="resources">
+                <i class="fas fa-book"></i> Resources
+            </button>
+        </div>
+
+        <!-- Visualizer Section -->
+        <div class="tab-content active" id="visualizer-tab">
+            <div class="header">
+                <h1>DDoS Attack Visualizer</h1>
+                <div class="theme-toggle">
+                    <button id="themeSwitch">Toggle Theme</button>
+                </div>
+            </div>
+
+            <div class="visualizer-wrapper">
+                <div class="visualizer-container">
+                    <canvas id="visualizer"></canvas>
+                    <div id="server" class="server-container">
+                        <div class="server-icon"></div>
+                        <div class="server-label">Target Server</div>
+                        <div id="server-status" class="status-normal">Normal</div>
+                        <div id="packet-counter">Packets: 0</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-panel">
+                <div class="control-group">
+                    <label for="attackType">Attack Type</label>
+                    <select id="attackType" class="styled-select">
+                        <option value="udp">UDP Flood</option>
+                        <option value="syn">SYN Flood</option>
+                        <option value="http">HTTP Flood</option>
+                        <option value="icmp">ICMP Flood</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="intensity">Attack Intensity</label>
+                    <div class="slider-container">
+                        <input type="range" id="intensity" min="1" max="100" value="50">
+                        <span id="intensityValue">50%</span>
+                    </div>
+                </div>
+
+                <button id="startStop" class="action-button">Start Attack</button>
+            </div>
+
+            <div id="explanation" class="explanation-panel"></div>
+
+            <div class="metrics-panel">
+                <div class="metric">
+                    <span class="metric-label">Packets/sec</span>
+                    <span id="packetRate" class="metric-value">0</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Total Packets</span>
+                    <span id="totalPackets" class="metric-value">0</span>
+                </div>
             </div>
         </div>
-        <div id="controls">
-            <div class="control-group">
-                <label for="attackType">Attack Type:</label>
-                <select id="attackType">
-                    <option value="udp">UDP Flood</option>
-                    <option value="syn">SYN Flood</option>
-                    <option value="http">HTTP Flood</option>
-                </select>
+
+        <!-- Learn Section -->
+        <div class="tab-content" id="learn-tab">
+            <h2>Understanding DDoS Attacks</h2>
+            <div class="learning-cards">
+                <!-- Cards will be populated by JavaScript -->
             </div>
-            <div class="control-group">
-                <label for="intensity">Attack Intensity:</label>
-                <input type="range" id="intensity" min="1" max="100" value="50">
-                <span id="intensityValue">50%</span>
-            </div>
-            <button id="startStop">Start Attack</button>
         </div>
-        <div id="explanation"></div>
+
+        <!-- Quiz Section -->
+        <div class="tab-content" id="quiz-tab">
+            <h2>Test Your Knowledge</h2>
+            <div class="quiz-container" id="quiz-container">
+                <!-- Quiz content will be populated by JavaScript -->
+            </div>
+            <div class="quiz-progress">
+                <div class="progress-bar"></div>
+            </div>
+            <div class="quiz-score" id="quiz-score"></div>
+        </div>
+
+        <!-- Resources Section -->
+        <div class="tab-content" id="resources-tab">
+            <h2>Additional Resources</h2>
+            <div class="resources-container" id="resources-container">
+                <!-- Resources will be populated by JavaScript -->
+            </div>
+        </div>
     </div>
-    <script src="script.js"></script>
+
+    <!-- Modal for Attack Details -->
+    <div id="attack-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modal-title"></h2>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <script src="./javascript/script.js"></script>
+    <script src="./javascript/learning.js"></script>
+    <script src="./javascript/quiz.js"></script>
+    <script src="./javascript/resources.js"></script>
 </body>
 </html>
