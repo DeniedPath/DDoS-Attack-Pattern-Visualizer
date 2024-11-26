@@ -1,5 +1,8 @@
 # DDoS Attack Pattern Visualizer & Learning Platform
 
+## View this project on Netlify:
+https://luminous-gelato-b37654.netlify.app
+
 ## Description
 
 The DDoS Attack Pattern Visualizer is a comprehensive educational platform designed to help users understand Distributed Denial of Service (DDoS) attacks through interactive visualizations, quizzes, and detailed learning resources. This tool combines practical demonstrations with theoretical knowledge to provide a complete learning experience about cybersecurity threats and defenses.
